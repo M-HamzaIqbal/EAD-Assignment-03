@@ -1,0 +1,55 @@
+﻿@model ModernTelephoneDirectory.Models.contact
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container form-container">
+    <form action="/Home/Edit/@Model.Id">
+        <table class="table">
+            <thead>
+                <h2>Update Person Record</h2>
+            </thead>
+            <tbody>
+                <tr>
+                    <div class="form-group">
+                        <label class="text-muted">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Ali Ahmad" onkeypress="return  !(event.charCode > 47 && event.charCode < 58)" value=@Model.Name required>
+                    </div>
+
+                </tr>
+
+                <tr>
+                    <div class="form-group">
+                        <label class="text-muted">Email address</label>
+                        <input type="email" class="form-control" name="email" placeholder="name@example.com" value=@Model.Email required>
+                    </div>
+                </tr>
+
+
+                <tr>
+                        <div class="form-group">
+                            <label class="text-muted">City</label>
+                            <input type="text" class="form-control" name="city"  placeholder="Karachi"  onkeypress="return !(event.charCode > 47 && event.charCode < 58)" value=@Model.City required>
+                        </div>
+
+                </tr>
+
+                <tr>
+                    <div class="form-group">
+                        <label class="text-muted" for="exampleInputPassword1">Phone No (format: 1234-1234-123)</label>
+                        <input id="phone" name="phone" type="tel" class="form-control" pattern="^\d{4}-\d{4}-\d{3}$"  placeholder="0123-4567-890" 
+                               onkeypress="return  (event.charCode > 47 && event.charCode < 58) || (event.charCode==45)" value=@Model.Phone required >
+                    </div>
+
+                </tr>
+                <tr>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
